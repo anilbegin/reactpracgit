@@ -20,6 +20,10 @@ module.exports = {
     // inorder to use a loader we need the below property
     module: {
         rules: [
+            { // adding css support, css rules where we use our loaders
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
             // only apply the babel loader to Javascript files
             {
                 test: /\.js$/,

@@ -2,7 +2,8 @@
 
 **Practice** using basic git commands
 
-Create a basic React App, upload it to web.
+- Create a basic React App, 
+- upload/push the React App to Github using git commands.
 
 
 **webpack**
