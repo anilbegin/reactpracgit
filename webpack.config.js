@@ -1,0 +1,37 @@
+const path = require('path')
+
+module.exports = {
+    entry: './app/Main.js',
+    output: {
+        filename: 'bundled.js',
+        path: path.resolve(__dirname, 'app')
+    },
+    devServer: {
+       port: 3000,
+       //contentBase: path.resolve(__dirname, "app"), //this gave error..[webpack-cli] Invalid options object. Dev Server has been initialized using an options object 
+        // so included below property i.e static:{}  // contentBase is outdated its replaced by static : { directory: path.resolve(__dirname, "app")}
+        static: {
+            directory: path.resolve(__dirname, 'app')
+        },
+        // injecting the newest copy of our Javascript without refreshing the whole page
+        hot: true       // this enables hot module replacement
+    },
+    mode: "development",
+    // inorder to use a loader we need the below property
+    module: {
+        rules: [
+            // only apply the babel loader to Javascript files
+            {
+                test: /\.js$/,
+                exclude: /(nodule_modules)/,
+                //which loader we want to use
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            }
+        ]
+    }
+}
