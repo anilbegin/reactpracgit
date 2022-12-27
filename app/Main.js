@@ -40,11 +40,13 @@ function LikeArea() {
     )
 }
 function TimeArea() {
-    return <p>The current time is {new Date().toLocaleString()}</p>
+    return <p>The current time is {new Date().toLocaleString()}</p> // only this part gets rendered inspite of setInterval being applied to the whole OurApp component.
 }
 
 const root = ReactDOM.createRoot(document.querySelector('#app'))
-root.render(<OurApp />)
+setInterval(() => {
+  root.render(<OurApp />)
+}, 1000)
 
 if(module.hot) {
     module.hot.accept()
