@@ -3,7 +3,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 function OurApp() {
-    return <h1 className='special'>Our Amazing App</h1>
+    return <OurHeader />
+}
+
+function OurHeader() {
+    return <h2 className='special'>Our Amazing App</h2>
 }
 
 const root = ReactDOM.createRoot(document.querySelector('#app'))
