@@ -57,13 +57,17 @@ function Pets(props) {
 }
 
 function TimeArea() {
-    return <p>The current time is {new Date().toLocaleString()}</p> // only this part gets rendered inspite of setInterval being applied to the whole OurApp component.
+    const [theTime, setTheTime] = useState(new Date().toLocaleString()) 
+
+    setTimeout(() => {
+        setTheTime(new Date().toLocaleString())
+    }, 1000)
+    return <p>The current time is {theTime}</p>
 }
 
 const root = ReactDOM.createRoot(document.querySelector('#app'))
-setInterval(() => {
-  root.render(<OurApp />)
-}, 1000)
+root.render(<OurApp />)
+
 
 if(module.hot) {
     module.hot.accept()
