@@ -2,11 +2,23 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 
+const pets = [
+    {name: "BarksAlot", species: "dog", age: 1, id: 100001},
+    {name: "MeowsAlot", species: "cat", age: 2, id: 100002},
+    {name: "PurrsAlot", species: "cat", age: 3, id: 100004},
+    {name: "Popo", species: "dog", age: 5, id: 100003}
+  ]
+
 function OurApp() {
     return (
         <>
             <OurHeader />
             <LikeArea />
+            <ul>
+                {pets.map(function(pet) {
+                    return <Pets name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
+                })}
+            </ul>
             <TimeArea />
         </>
     )
@@ -39,6 +51,11 @@ function LikeArea() {
         </>
     )
 }
+    
+function Pets(props) {
+    return <li>{props.name} is a {props.species} and is {props.age} years old.</li>
+}
+
 function TimeArea() {
     return <p>The current time is {new Date().toLocaleString()}</p> // only this part gets rendered inspite of setInterval being applied to the whole OurApp component.
 }
