@@ -60,7 +60,7 @@ function AddPetsForm(props) {
     
     function formHandler(e) {
         e.preventDefault()
-        props.setPets(prev => prev.concat({name: name, species: species, age: age, id: Date.now()}))
+        props.setPets(prev => prev.concat({name, species, age, id: Date.now()}))
         setName("")
         setSpecies("")
         setAge("")
