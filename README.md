@@ -5,6 +5,7 @@
 - Create a basic React App, 
   - introducing props
   - using functions for a component 
+  - working with Forms
   - introducing useState
   - introducing useEffect
 - upload/push the React App to Github using git commands.
