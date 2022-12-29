@@ -16,7 +16,7 @@ function OurApp() {
             <AddPetsForm setPets={setPets} />
             <ul>
                 {pets.map(function(pet) {
-                    return <Pets name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
+                    return <Pets setPets={setPets} id={pet.id} name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
                 })}
             </ul>
             <TimeArea />
@@ -81,7 +81,10 @@ function AddPetsForm(props) {
 }
 
 function Pets(props) {
-    return <li>{props.name} is a {props.species} and is {props.age} years old.</li>
+    function deleteHandler() {
+        props.setPets(prev => prev.filter(pet => pet.id != props.id))
+    }
+    return <li>{props.name} is a {props.species} and is {props.age} years old. <button onClick={deleteHandler}>Delete</button></li>
 }
 
 function TimeArea() {
