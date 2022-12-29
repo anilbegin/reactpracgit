@@ -2,14 +2,13 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 
-const pets = [
-    {name: "BarksAlot", species: "dog", age: 1, id: 100001},
-    {name: "MeowsAlot", species: "cat", age: 2, id: 100002},
-    {name: "PurrsAlot", species: "cat", age: 3, id: 100004},
-    {name: "Popo", species: "dog", age: 5, id: 100003}
-  ]
-
 function OurApp() {
+    const [pets, setPets] = useState([
+        {name: "BarksAlot", species: "dog", age: 1, id: 100001},
+        {name: "MeowsAlot", species: "cat", age: 2, id: 100002},
+        {name: "PurrsAlot", species: "cat", age: 3, id: 100004},
+        {name: "Popo", species: "dog", age: 5, id: 100003}
+      ])
     return (
         <>
             <OurHeader />
