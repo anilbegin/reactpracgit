@@ -3,6 +3,10 @@
 **Practice** using basic git commands
 
 - Create a basic React App, 
+  - introducing props
+  - using functions for a component 
+  - introducing useState
+  - introducing useEffect
 - upload/push the React App to Github using git commands.
 
 
