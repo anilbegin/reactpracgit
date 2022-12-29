@@ -13,6 +13,7 @@ function OurApp() {
         <>
             <OurHeader />
             <LikeArea />
+            <AddPetsForm />
             <ul>
                 {pets.map(function(pet) {
                     return <Pets name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
@@ -50,7 +51,27 @@ function LikeArea() {
         </>
     )
 }
-    
+
+function AddPetsForm() {
+    function formHandler(e) {
+        e.preventDefault()
+        alert("Thanks for submitting")
+    }
+    return (
+        <>
+            <fieldset>
+                <legend>Add Pet Info</legend>
+                <form onSubmit={formHandler}>
+                    <input placeholder='Pet Name' />
+                    <input placeholder='Species' />
+                    <input placeholder='Age' />
+                    <button>Add Pet</button>
+                </form>
+            </fieldset>
+        </>
+    )
+}
+
 function Pets(props) {
     return <li>{props.name} is a {props.species} and is {props.age} years old.</li>
 }
