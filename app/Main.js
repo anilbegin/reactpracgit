@@ -61,15 +61,18 @@ function AddPetsForm(props) {
     function formHandler(e) {
         e.preventDefault()
         props.setPets(prev => prev.concat({name: name, species: species, age: age, id: Date.now()}))
+        setName("")
+        setSpecies("")
+        setAge("")
     }
     return (
         <>
             <fieldset>
                 <legend>Add Pet Info</legend>
                 <form onSubmit={formHandler}>
-                    <input onChange={e => setName(e.target.value)} placeholder='Pet Name' />
-                    <input onChange={e => setSpecies(e.target.value)} placeholder='Species' />
-                    <input onChange={e => setAge(e.target.value)} placeholder='Age' />
+                    <input value={name} onChange={e => setName(e.target.value)} placeholder='Pet Name' />
+                    <input value={species} onChange={e => setSpecies(e.target.value)} placeholder='Species' />
+                    <input value={age} onChange={e => setAge(e.target.value)} placeholder='Age' />
                     <button>Add Pet</button>
                 </form>
             </fieldset>
