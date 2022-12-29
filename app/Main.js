@@ -13,7 +13,7 @@ function OurApp() {
         <>
             <OurHeader />
             <LikeArea />
-            <AddPetsForm />
+            <AddPetsForm setPets={setPets} />
             <ul>
                 {pets.map(function(pet) {
                     return <Pets name={pet.name} species={pet.species} age={pet.age} key={pet.id} />
@@ -52,10 +52,10 @@ function LikeArea() {
     )
 }
 
-function AddPetsForm() {
+function AddPetsForm(props) {
     function formHandler(e) {
         e.preventDefault()
-        alert("Thanks for submitting")
+        props.setPets(prev => prev.concat({name: "dino", species: "dinosaur", age: 21, id: 100007}))
     }
     return (
         <>
