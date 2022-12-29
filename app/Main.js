@@ -53,18 +53,23 @@ function LikeArea() {
 }
 
 function AddPetsForm(props) {
+
+    const [name, setName] = useState()
+    const [species, setSpecies] = useState()
+    const [age, setAge] = useState()
+    
     function formHandler(e) {
         e.preventDefault()
-        props.setPets(prev => prev.concat({name: "dino", species: "dinosaur", age: 21, id: 100007}))
+        props.setPets(prev => prev.concat({name: name, species: species, age: age, id: Date.now()}))
     }
     return (
         <>
             <fieldset>
                 <legend>Add Pet Info</legend>
                 <form onSubmit={formHandler}>
-                    <input placeholder='Pet Name' />
-                    <input placeholder='Species' />
-                    <input placeholder='Age' />
+                    <input onChange={e => setName(e.target.value)} placeholder='Pet Name' />
+                    <input onChange={e => setSpecies(e.target.value)} placeholder='Species' />
+                    <input onChange={e => setAge(e.target.value)} placeholder='Age' />
                     <button>Add Pet</button>
                 </form>
             </fieldset>
