@@ -1,14 +1,22 @@
 //import './main.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom/client'
 
 function OurApp() {
-    const [pets, setPets] = useState([
-        {name: "BarksAlot", species: "dog", age: 1, id: 100001},
-        {name: "MeowsAlot", species: "cat", age: 2, id: 100002},
-        {name: "PurrsAlot", species: "cat", age: 3, id: 100004},
-        {name: "Popo", species: "dog", age: 5, id: 100003}
-      ])
+    const [pets, setPets] = useState([])
+
+    // on first Load
+    useEffect(() => {
+        if(localStorage.getItem('saveData')) {
+            setPets(JSON.parse(localStorage.getItem('saveData')))
+        }
+    }, [])
+
+    // on every Change to pets state
+    useEffect(() => {
+        localStorage.setItem('saveData', JSON.stringify(pets))
+    }, [pets])
+
     return (
         <>
             <OurHeader />
